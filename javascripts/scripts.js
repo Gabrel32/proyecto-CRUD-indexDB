@@ -61,6 +61,15 @@ const deleteObjeto = (key)=>{
         console.log("se elimino");
     })
 }
+function changeClass(Name,Surname){
+    modifyBtn.classList.replace("impossible","possible")
+        modifyBtn.addEventListener("click",()=>{
+            if(modifyBtn.className = "possible"){
+                modifyObjeto(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
+                modifyBtn.classList.replace("possible","impossible")
+            }
+        })
+}
 const inputName = document.getElementById(`inputName`);
 const inputSurname = document.getElementById("inputSurname");
 const btnInputValue = document.querySelector(".btnInputValue");
@@ -75,20 +84,34 @@ function createdate (key ,user){
         maximunContainerUsers.removeChild(maximunContainerUsers.firstChild)
     }
     const containerUsers = templade.content.firstElementChild.cloneNode(true);
-    const h3NameSurname = containerUsers.querySelector(".h3NameSurname");
+    const h3Name = containerUsers.querySelector(".h3Name");
+    const h3Surname = containerUsers.querySelector(".h3Surname")
     const deleteBtn = containerUsers.querySelector(".deleteBtn")
-    const modifyBtn = containerUsers.querySelector("modifyBtn")
+    const modifyBtn = containerUsers.querySelector("#modifyBtn")
     deleteBtn.addEventListener("click",()=>{
         deleteObjeto(key)
         maximunContainerUsers.removeChild(containerUsers)
     })
-    h3NameSurname.textContent = `${user.nombre} ${user.apellido}`
-    h3NameSurname.setAttribute("contenteditable","true");
-    h3NameSurname.setAttribute("spellcheck","false");
-    h3NameSurname.addEventListener("keyup",()=>{
-        modifyBtn.id = null;
+    h3Name.textContent = user.nombre
+    h3Surname.textContent = user.apellido
+    h3Name.setAttribute("contenteditable","true");
+    h3Surname.setAttribute("contenteditable","true")
+    h3Name.setAttribute("spellcheck","false");
+    h3Surname.setAttribute("spellcheck","false")
+    h3Name.addEventListener("keyup",()=>{
+        console.log(modifyBtn)
+        modifyBtn.classList.replace("impossible","possible")
+        modifyBtn.addEventListener("click",()=>{
+            console.log(modifyBtn.className);
+            if(modifyBtn.className = "possible"){
+                modifyObjeto(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
+                modifyBtn.classList.replace("possible","impossible")
+                console.log(modifyBtn.className);
+            }
+        })    
     })
-
+    h3Surname.addEventListener("keyup",()=>changeClass(h3Name.textContent,h3Surname.textContent))
+    
     
     return containerUsers
 } 

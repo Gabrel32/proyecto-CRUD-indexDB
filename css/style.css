@@ -166,11 +166,11 @@ body{
 .options button:nth-child(2)::before{
     background-color: #d64332;
 }
-#impossible{
-  border: solid 3px #272525;
-  color: #272525;  
+.impossible{
+  border: solid 3px #272525 !important;
+  color: #272525 !important;  
 }
-#impossible::before{
-    background-color: #272525;
+.impossible::before{
+    background-color: #272525 !important;
 }
   
