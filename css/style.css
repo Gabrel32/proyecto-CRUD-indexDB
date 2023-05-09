@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-image:linear-gradient(to right,#ec11ae27,#6c65653e), url(endless-constellation.svg);
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+    border-bottom: 1px solid #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+.container h1{
+    margin: 1em;
+    font-size:1.7em;
+    color: #faebd7;
+    text-shadow: #000 8px 8px 10px;
+
+}
+.ipt{
+    background-color:transparent;
+    outline: none;
+    padding: 1em 0px 3px 3px ;
+    overflow: none;
+    border: none;
+    border-bottom: solid 1px #000;
+    color: #d1c5b7; 
+    font-family:'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+    
+}
+.ipt::placeholder{
+    color: #d1c5b7;
+    transition: all .3s ease;
+    
+}
+.ipt:focus::placeholder{
+    transform: scale(.9) translateY(-15px);
+
+}
+.btnInputValue{
+    position: relative;
+    padding: 6px 5px;
+    background: transparent;
+    border: 3px solid #0a27b6;
+    z-index: 1;
+    overflow: hidden;
+    color: #d1c5b7;
+    border-radius: 4px;
+}
+.btnInputValue::after{
+    content: "Anadir";
+}
+.btnInputValue::before{
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: #0a27b6;
+    left: 0;
+    top: -200%;
+    transition: all 0.8s ease;
+    border-radius: 50%;
+    z-index: -1;
+}
+.btnInputValue:hover::before{
+    top: 0;
+    border-radius: 0;
+    
+
+}
+.btnInputValue:active{
+    filter: brightness(110%);
+}
+
+.maximunContainerUsers{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.containerUsers{
+    display: flex;
+    width: 80%;
+    height: 2.8em;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: solid 1.5px #ddd3d3;
+    padding: .5em;
+    margin: .5em;
+    transition: .6s ease;
+}
+.containerUsers:hover{
+    border-bottom-style:dashed;
+    border-bottom-left-radius: 20px;
+}
+.containerUsers h3{
+    font-family:'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    text-shadow: 4px 4px 8px #272525;
+    color: #c5d0d6b3;
+    
+
+}
+.options{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    margin-left: 15%;
+
+}
+.options button{
+    position: relative;
+    color: #d1c5b7;
+    background-color: transparent;
+    padding: 8px 10px; 
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 5px;
+    
+}
+.options button::before{
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: -200%;
+    transition: all 0.8s ease;
+    border-radius: 88%;
+    z-index: -1;
+
+}
+.options button:hover::before{
+    top: 0;
+    border-radius: 0;
+
+}
+
+.options button:active{
+    filter: brightness(110%);
+}
+
+
+.options button:first-child{
+    border: solid 3px #08a705;
+}
+.options button:first-child::before{
+    background-color: #08a705;
+}
+.options button:nth-child(2){
+    border: solid 3px #d64332;
+}
+.options button:nth-child(2)::before{
+    background-color: #d64332;
+}
+#impossible{
+  border: solid 3px #272525;
+  color: #272525;  
+}
+#impossible::before{
+    background-color: #272525;
+}
+  
