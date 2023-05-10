@@ -10,7 +10,8 @@ body{
 
 .container{
     display: flex;
-    width: 100%;
+    width: 80%;
+    margin: auto;
     justify-content: center;
     align-items: center;
     flex-direction: column;

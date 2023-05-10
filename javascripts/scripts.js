@@ -68,11 +68,14 @@ const deleteObjeto = (key)=>{
         console.log("se elimino");
     })
 }
-
-function createdate (key ,user){
+function clear(){
     while (maximunContainerUsers.firstChild) {
         maximunContainerUsers.removeChild(maximunContainerUsers.firstChild)
     }
+}
+
+function createdate (key ,user){
+    clear()
     const containerUsers = templade.content.firstElementChild.cloneNode(true);
     const h3Name = containerUsers.querySelector(".h3Name");
     const h3Surname = containerUsers.querySelector(".h3Surname")
