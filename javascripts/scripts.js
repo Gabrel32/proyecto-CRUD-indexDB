@@ -61,7 +61,7 @@ const deleteObjeto = (key)=>{
         console.log("se elimino");
     })
 }
-function changeClass(Name,Surname){
+function changeClass(key,Name,Surname){
     modifyBtn.classList.replace("impossible","possible")
         modifyBtn.addEventListener("click",()=>{
             if(modifyBtn.className = "possible"){
