@@ -1,3 +1,4 @@
+const requestIDB = indexedDB.open("dataBase",1)
 const inputName = document.getElementById(`inputName`);
 const inputSurname = document.getElementById("inputSurname");
 const btnInputValue = document.querySelector(".btnInputValue");
@@ -5,7 +6,6 @@ const maximunContainerUsers = document.querySelector(".maximunContainerUsers");
 const templade = document.querySelector(".templade");
 const fracment = document.createDocumentFragment()
 let user ={nombre:"", apellido:""} 
-const requestIDB = indexedDB.open("dataBase",1)
 requestIDB.addEventListener("upgradeneeded",()=>{
     console.log(`funciona`)
     const db = requestIDB.result
@@ -68,16 +68,6 @@ const deleteObjeto = (key)=>{
         console.log("se elimino");
     })
 }
-function changeClass(key,user){
-    modifyBtn.classList.replace("impossible","possible")
-        modifyBtn.addEventListener("click",()=>{
-            if(modifyBtn.className = "possible"){
-                modifyObjeto(key,user)
-                modifyBtn.classList.replace("possible","impossible")
-            }
-        })
-}
-
 
 function createdate (key ,user){
     while (maximunContainerUsers.firstChild) {
@@ -88,19 +78,37 @@ function createdate (key ,user){
     const h3Surname = containerUsers.querySelector(".h3Surname")
     const deleteBtn = containerUsers.querySelector(".deleteBtn")
     const modifyBtn = containerUsers.querySelector("#modifyBtn")
-    deleteBtn.addEventListener("click",()=>{
-        deleteObjeto(key)
-        maximunContainerUsers.removeChild(containerUsers)
-    })
+
     h3Name.textContent = user.nombre
     h3Surname.textContent = user.apellido
     h3Name.setAttribute("contenteditable","true");
     h3Surname.setAttribute("contenteditable","true")
     h3Name.setAttribute("spellcheck","false");
     h3Surname.setAttribute("spellcheck","false")
-    h3Name.addEventListener("keyup",()=>changeClass(key, {nombre:h3Name.textContent,apellido:h3Surname.textContent}))
-    h3Surname.addEventListener("keyup",()=>changeClass(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent}))
     
+    deleteBtn.addEventListener("click",()=>{
+        deleteObjeto(key)
+        maximunContainerUsers.removeChild(containerUsers)
+    })
+    h3Name.addEventListener("keyup",()=>{
+        modifyBtn.classList.replace("impossible","possible")
+        if(modifyBtn.className == "possible"){
+            modifyBtn.addEventListener("click",()=>{
+            modifyObjeto(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
+            modifyBtn.classList.replace("possible","impossible")
+        })
+    }
+    })
+    h3Surname.addEventListener("keyup",()=>{
+        modifyBtn.classList.replace("impossible","possible")
+        if(modifyBtn.className == "possible"){
+            modifyBtn.addEventListener("click",()=>{
+            modifyObjeto(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
+            modifyBtn.classList.replace("possible","impossible")
+        })
+    }
+    })  
+
     return containerUsers
 } 
 
@@ -111,7 +119,7 @@ btnInputValue.addEventListener("click",()=>{
     readoObjeto()
     inputName.value =""
     inputSurname.value =""
-   
+    
 })
 
 
