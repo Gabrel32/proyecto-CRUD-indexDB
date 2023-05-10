@@ -1,3 +1,10 @@
+const inputName = document.getElementById(`inputName`);
+const inputSurname = document.getElementById("inputSurname");
+const btnInputValue = document.querySelector(".btnInputValue");
+const maximunContainerUsers = document.querySelector(".maximunContainerUsers");
+const templade = document.querySelector(".templade");
+const fracment = document.createDocumentFragment()
+let user ={nombre:"", apellido:""} 
 const requestIDB = indexedDB.open("dataBase",1)
 requestIDB.addEventListener("upgradeneeded",()=>{
     console.log(`funciona`)
@@ -61,22 +68,15 @@ const deleteObjeto = (key)=>{
         console.log("se elimino");
     })
 }
-function changeClass(key,Name,Surname){
+function changeClass(key,user){
     modifyBtn.classList.replace("impossible","possible")
         modifyBtn.addEventListener("click",()=>{
             if(modifyBtn.className = "possible"){
-                modifyObjeto(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
+                modifyObjeto(key,user)
                 modifyBtn.classList.replace("possible","impossible")
             }
         })
 }
-const inputName = document.getElementById(`inputName`);
-const inputSurname = document.getElementById("inputSurname");
-const btnInputValue = document.querySelector(".btnInputValue");
-const maximunContainerUsers = document.querySelector(".maximunContainerUsers");
-const templade = document.querySelector(".templade");
-const fracment = document.createDocumentFragment()
-let user ={nombre:"", apellido:""} 
 
 
 function createdate (key ,user){
@@ -98,20 +98,8 @@ function createdate (key ,user){
     h3Surname.setAttribute("contenteditable","true")
     h3Name.setAttribute("spellcheck","false");
     h3Surname.setAttribute("spellcheck","false")
-    h3Name.addEventListener("keyup",()=>{
-        console.log(modifyBtn)
-        modifyBtn.classList.replace("impossible","possible")
-        modifyBtn.addEventListener("click",()=>{
-            console.log(modifyBtn.className);
-            if(modifyBtn.className = "possible"){
-                modifyObjeto(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
-                modifyBtn.classList.replace("possible","impossible")
-                console.log(modifyBtn.className);
-            }
-        })    
-    })
-    h3Surname.addEventListener("keyup",()=>changeClass(h3Name.textContent,h3Surname.textContent))
-    
+    h3Name.addEventListener("keyup",()=>changeClass(key, {nombre:h3Name.textContent,apellido:h3Surname.textContent}))
+    h3Surname.addEventListener("keyup",()=>changeClass(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent}))
     
     return containerUsers
 } 
@@ -123,10 +111,6 @@ btnInputValue.addEventListener("click",()=>{
     readoObjeto()
     inputName.value =""
     inputSurname.value =""
-    // for (let i = 0; i < 5; i++) {
-    //     createdate();
-        
-    // }
    
 })
 
