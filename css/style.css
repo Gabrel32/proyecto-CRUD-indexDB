@@ -28,6 +28,13 @@ body{
     text-shadow: #000 8px 8px 10px;
 
 }
+.containerInputs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 .ipt{
     background-color:transparent;
     outline: none;
@@ -38,8 +45,10 @@ body{
     color: #d1c5b7; 
     font-family:'Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
     letter-spacing: 1px;
+    margin-left: 40px;
     
 }
+
 .ipt::placeholder{
     color: #d1c5b7;
     transition: all .3s ease;
@@ -51,13 +60,14 @@ body{
 }
 .btnInputValue{
     position: relative;
-    padding: 6px 5px;
+    padding: 10px 30px;
     background: transparent;
     border: 3px solid #0a27b6;
     z-index: 1;
     overflow: hidden;
     color: #d1c5b7;
     border-radius: 4px;
+    margin: 15px;
 }
 .btnInputValue::after{
     content: "Anadir";
@@ -112,14 +122,15 @@ body{
     font-size: 25px;
     text-shadow: 4px 4px 8px #272525;
     color: #c5d0d6b3;
+    margin: 0 8px;
     
 
 }
 .options{
     display: flex;
     width: 40%;
-    justify-content: space-around;
-    margin-left: 15%;
+    flex-direction: row-reverse;
+    flex: 30%;
 
 }
 .options button{
@@ -130,6 +141,7 @@ body{
     overflow: hidden;
     z-index: 1;
     border-radius: 5px;
+    margin: 0 8px;
     
 }
 .options button::before{

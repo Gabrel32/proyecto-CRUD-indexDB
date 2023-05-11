@@ -22,7 +22,7 @@ requestIDB.addEventListener("error",()=>{
     console.log(`se produjo un error`);
 })
 
-const addObjeto = user =>{
+const addObjet = user =>{
     const db = requestIDB.result;
     const IDBtransaction = db.transaction("users","readwrite")
     const objectStore = IDBtransaction.objectStore("users",)
@@ -32,7 +32,7 @@ const addObjeto = user =>{
     })
 
 }
-const readoObjeto = ()=>{
+const readObjet = ()=>{
     const db = requestIDB.result;
     const IDBtransaction = db.transaction("users","readonly")
     const objectStore = IDBtransaction.objectStore("users",)
@@ -50,7 +50,7 @@ const readoObjeto = ()=>{
         }
     })
 }
-const modifyObjeto = (key,objeto)=>{
+const modifyObjet = (key,objeto)=>{
     const db = requestIDB.result;
     const IDBtransaction = db.transaction("users","readwrite")
     const objectStore = IDBtransaction.objectStore("users",)
@@ -59,7 +59,7 @@ const modifyObjeto = (key,objeto)=>{
         console.log("se modifico");
     })
 }
-const deleteObjeto = (key)=>{
+const deleteObjet = (key)=>{
     const db = requestIDB.result;
     const IDBtransaction = db.transaction("users","readwrite")
     const objectStore = IDBtransaction.objectStore("users",)
@@ -90,14 +90,14 @@ function createdate (key ,user){
     h3Surname.setAttribute("spellcheck","false")
     
     deleteBtn.addEventListener("click",()=>{
-        deleteObjeto(key)
+        deleteObjet(key)
         maximunContainerUsers.removeChild(containerUsers)
     })
     h3Name.addEventListener("keyup",()=>{
         modifyBtn.classList.replace("impossible","possible")
         if(modifyBtn.className == "possible"){
             modifyBtn.addEventListener("click",()=>{
-            modifyObjeto(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
+            modifyObjet(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
             modifyBtn.classList.replace("possible","impossible")
         })
     }
@@ -106,7 +106,7 @@ function createdate (key ,user){
         modifyBtn.classList.replace("impossible","possible")
         if(modifyBtn.className == "possible"){
             modifyBtn.addEventListener("click",()=>{
-            modifyObjeto(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
+            modifyObjet(key,{nombre:h3Name.textContent,apellido:h3Surname.textContent})
             modifyBtn.classList.replace("possible","impossible")
         })
     }
@@ -118,8 +118,8 @@ function createdate (key ,user){
 btnInputValue.addEventListener("click",()=>{
     user.nombre = inputName.value
     user.apellido = inputSurname.value
-    addObjeto(user)
-    readoObjeto()
+    addObjet(user)
+    readObjet()
     inputName.value =""
     inputSurname.value =""
     
