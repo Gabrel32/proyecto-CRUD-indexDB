@@ -28,6 +28,7 @@ body{
     text-shadow: #000 8px 8px 10px;
 
 }
+
 .containerInputs{
     display: flex;
     flex-direction: row;
@@ -185,5 +186,43 @@ body{
 }
 .impossible::before{
     background-color: #381292 ;
+}
+@media screen and (max-width:450px) {
+    .container{
+        display: flex;
+        width: 80%;
+        padding: 1em;
+    
+    }
+    .container h1{
+        margin: .5em;
+        font-size:1.2em;
+        color: #faebd7;
+        text-shadow: #000 8px 8px 10px;
+    
+    }
+    .containerUsers{
+        height: 2em;
+        width: 90%;
+    }
+    .containerUsers h3{
+        font-size: 18px;
+        letter-spacing: .5px;   
+        margin: .3em;
+        padding: .3em;
+    }
+    .options button{
+        padding: 5px 6px; 
+        margin: 0 4px; 
+        font-size: 10px;
+    }
+    .options button:hover:before{
+        top: 0;
+        border-radius: 0;
+    
+    }
+
+
+
 }
   
