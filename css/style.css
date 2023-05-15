@@ -167,23 +167,23 @@ body{
 }
 
 
-.options button:first-child{
+.options button:nth-child(2){
     border: solid 3px #08a705;
 }
-.options button:first-child::before{
+.options button:nth-child(2)::before{
     background-color: #08a705;
 }
-.options button:nth-child(2){
+.options button:first-child{
     border: solid 3px #d64332;
 }
-.options button:nth-child(2)::before{
+.options button:first-child::before{
     background-color: #d64332;
 }
 .impossible{
-  border: solid 3px #272525 !important;
-  color: #272525 !important;  
+  border: solid 3px #381292 ;
+  color: #8a8898 ;  
 }
 .impossible::before{
-    background-color: #272525 !important;
+    background-color: #381292 ;
 }
   
